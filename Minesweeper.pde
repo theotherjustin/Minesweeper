@@ -62,6 +62,16 @@ public void displayLosingMessage()
         }
         
 }
+for(int r=0; r<buttons.length; r++)
+    {
+        for(int c=0; c<buttons[r].length; c++)
+        {
+            if(bombs.contains(buttons[r][c])&&!buttons[r][c].isClicked())
+            {
+                buttons[r][c].mousePressed();
+            }
+        }
+    }
 }
 public void displayWinningMessage()
 {
@@ -163,8 +173,8 @@ public class MSButton
     {    
         if (marked)
             fill(0,200,200);
-        // else if( clicked && bombs.contains(this) ) 
-        //     fill(255,0,0);
+        else if( clicked && bombs.contains(this) ) 
+            fill(255,0,0);
         else if(clicked)
             fill( 200 );
         else 
